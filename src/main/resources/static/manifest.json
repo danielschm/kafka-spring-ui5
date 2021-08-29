@@ -1,0 +1,60 @@
+{
+  "_version": "1.5.0",
+  "sap.app": {
+    "id": "kafka-webapp",
+    "type": "application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "Kafka Springboot UI5",
+    "description": "Master Thesis Project"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_fiori_3"
+    ]
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "kafka-webapp.ui.List",
+      "type": "XML"
+    },
+    "dependencies": {
+      "minUI5Version": "1.30.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "kafka-webapp.ui",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "home",
+          "target": "home"
+        }
+      ],
+      "targets": {
+        "home": {
+          "viewName": "List",
+          "viewLevel": 1
+        }
+      }
+    }
+  }
+}

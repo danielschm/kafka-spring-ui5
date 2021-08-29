@@ -1,0 +1,16 @@
+<mvc:View
+        controllerName="kafka-webapp.ui.List"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Main">
+        <content>
+            <List id="list" items="{data>/}" mode="None">
+                <items>
+                    <StandardListItem
+                            title="{data>name}"
+                            info="{data>type}"/>
+                </items>
+            </List>
+        </content>
+    </Page>
+</mvc:View>
