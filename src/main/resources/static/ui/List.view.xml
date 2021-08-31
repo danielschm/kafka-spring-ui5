@@ -1,16 +1,42 @@
 <mvc:View
         controllerName="kafka-webapp.ui.List"
         xmlns="sap.m"
+        xmlns:f="sap.f"
+        xmlns:cards="sap.f.cards"
         xmlns:mvc="sap.ui.core.mvc">
-    <Page title="Main">
+    <Page title="Main" class="sapUiContentPadding">
         <content>
-            <List id="list" items="{data>/}" mode="None">
-                <items>
-                    <StandardListItem
-                            title="{data>name}"
-                            info="{data>type}"/>
-                </items>
-            </List>
+            <HBox>
+                <GenericTile class="tileLayout" header="Gesamtergebnis"
+                             press="onPress" frameType="OneByHalf">
+                    <TileContent unit="Unit">
+                        <NumericContent scale="EUR" value="{data>/totalResult}" withMargin="false"/>
+                    </TileContent>
+                </GenericTile>
+                <f:Card class="sapUiTinyMarginBegin">
+                    <f:header>
+                        <cards:Header title="Erhaltene Messages ({data>/entryCount})"/>
+                    </f:header>
+                    <f:content>
+                        <Table items="{data>/entries/}">
+                            <columns>
+                                <Column>
+                                    <Text text="Ergebnis"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Uhrzeit"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <Text text="{data>result}"/>
+                                    <Text text="{data>timestamp}"/>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </f:content>
+                </f:Card>
+            </HBox>
         </content>
     </Page>
 </mvc:View>
