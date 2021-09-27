@@ -29,8 +29,8 @@
                             </columns>
                             <items>
                                 <ColumnListItem>
-                                    <Text text="{data>result}"/>
-                                    <Text text="{data>timestamp}"/>
+                                    <Text text="{data>ResultValue}"/>
+                                    <Text text="{data>Timestamp}"/>
                                 </ColumnListItem>
                             </items>
                         </Table>

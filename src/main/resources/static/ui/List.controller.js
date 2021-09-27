@@ -22,10 +22,13 @@ sap.ui.define([
             });
         },
 
-        addData(oData) {
+        addData(oResponse) {
+            const oData = oResponse.payload;
+            oData.ResultValue = Math.round(oData.ResultValue * 100) / 100;
+            oData.Timestamp = new Date(oData.Timestamp).toLocaleTimeString();
             const aEntries = this.getView().getModel("data").getProperty("/entries");
             aEntries.unshift(oData);
-            this.getView().getModel("data").setProperty("/totalResult", oData.newTotalResult);
+            this.getView().getModel("data").setProperty("/totalResult", oData.ResultValueTotal);
             this.getView().getModel("data").setProperty("/entryCount", ++iEntryCount);
 
             if (aEntries.length > 5) {

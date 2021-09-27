@@ -17,7 +17,7 @@ public class KafkaConsumerController
         System.out.println("WebsocketController instantiated.");
     }
 
-    @KafkaListener(topics = "Transaction")
+    @KafkaListener(topics = "Result")
     public void processKafkaMessage(String json) {
         template.convertAndSend("/topic/data", json);
     }
